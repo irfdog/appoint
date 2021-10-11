@@ -8,11 +8,17 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
+import { NavLink } from "react-router-dom";
+import theme from "../utils/theme";
 
 function Welcome() {
   return (
     <div>
-      <AppBar position="relative" align="center">
+      <AppBar
+        position="relative"
+        align="center"
+        style={{ background: theme.palette.primary.gradient }}
+      >
         <Typography variant="h3" sx={{ fontWeight: "bold", mt: 1, mb: 1 }}>
           Appoint
         </Typography>
@@ -40,7 +46,7 @@ function Welcome() {
               alignItems="stretch"
             >
               <Button
-                size="medium"
+                size="large"
                 color="primary"
                 variant="contained"
                 sx={{ mt: 10, borderRadius: 7 }}
@@ -49,7 +55,7 @@ function Welcome() {
                 Weiter mit Email
               </Button>
               <Button
-                size="medium"
+                size="large"
                 color="secondary"
                 variant="contained"
                 sx={{ mt: 2, borderRadius: 7 }}
@@ -58,7 +64,7 @@ function Welcome() {
                 Weiter mit Facebook
               </Button>
               <Button
-                size="medium"
+                size="large"
                 color="secondary"
                 variant="contained"
                 sx={{ mt: 2, borderRadius: 7 }}
@@ -67,7 +73,7 @@ function Welcome() {
                 Weiter mit Instagram
               </Button>
               <Button
-                size="medium"
+                size="large"
                 color="secondary"
                 variant="contained"
                 sx={{ mt: 2, borderRadius: 7 }}
@@ -75,6 +81,12 @@ function Welcome() {
               >
                 Weiter mit Twitter
               </Button>
+              <NavLink
+                to="/register"
+                style={{ marginTop: 15, color: "black", fontWeight: "bold" }}
+              >
+                Noch nicht registriert?
+              </NavLink>
             </Grid>
             <FooterAGB
               description="Mit deiner Anmeldung akzeptierst du

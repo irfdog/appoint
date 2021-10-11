@@ -45,6 +45,7 @@ function Welcome() {
               alignItems="stretch"
             >
               <Button
+                size="large"
                 color="secondary"
                 variant="contained"
                 sx={{ mt: 10, borderRadius: 7 }}
