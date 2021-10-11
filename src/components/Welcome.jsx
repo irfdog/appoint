@@ -43,6 +43,7 @@ function Welcome() {
               direction="column"
               justifyContent="center"
               alignItems="stretch"
+              style={{ maxWidth: 575 }}
             >
               <Button
                 size="large"

@@ -9,7 +9,7 @@ function AGB() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://irfandogic.com/">
+      <Link color="inherit" href="https://irfandogic.com/" target="_blank">
         dotaSolutions
       </Link>{" "}
       {new Date().getFullYear()}
@@ -34,11 +34,11 @@ function Footer(props) {
           component="p"
         >
           {description}{" "}
-          <Link color="inherit" href="AGB-Dota">
+          <Link color="inherit" href="AGB-Dota" target="_blank">
             AGBs
           </Link>
           {" und "}
-          <Link color="inherit" href="AGB-Dota">
+          <Link color="inherit" href="AGB-Dota" target="_blank">
             Datenschutz-Richtlinien.
           </Link>
         </Typography>
