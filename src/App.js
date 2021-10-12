@@ -1,7 +1,13 @@
 import { ThemeProvider } from "@mui/material";
 import theme from "./utils/theme";
 import Welcome from "./components/Welcome";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NotFound from "./components/NotFound";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Login from "./components/Login";
 
 function App() {
@@ -10,7 +16,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <Switch>
           <Route path="/login" component={Login} />
-          <Route path="/" component={Welcome} />
+          <Route path="/not-found" component={NotFound} />
+          <Route path="/" exact component={Welcome} />
+          <Redirect to="/not-found" component={NotFound} />
         </Switch>
       </ThemeProvider>
     </Router>

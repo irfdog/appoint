@@ -29,13 +29,13 @@ function Welcome() {
         <div>
           <Container align="center" sx={{ fontWeight: "light", mt: 15 }}>
             <Typography variant="h4" gutterBottom>
-              Willkomen
+              Willkommen
             </Typography>
             <Typography
               variant="subtitle1"
               sx={{ fontWeight: "light", mt: 10 }}
             >
-              Das praktische Tool für deine Terminen bei all deinen
+              Das praktische Tool für deine Termine bei all deinen
               Lieblingsservices
             </Typography>
             <Grid
