@@ -4,6 +4,7 @@ import Welcome from "./components/Welcome";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import LoginDefault from "./components/LoginDefault";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +18,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Switch>
           <Route path="/login" component={Login} />
+          <Route path="/login-default" component={LoginDefault} />
           <Route path="/register" component={Register} />
           <Route path="/not-found" component={NotFound} />
           <Route path="/" exact component={Welcome} />

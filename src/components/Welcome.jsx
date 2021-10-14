@@ -6,8 +6,21 @@ import AppBar from "@mui/material/AppBar";
 import Footer from "./Footer";
 import { useHistory } from "react-router-dom";
 import theme from "../utils/theme";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Welcome() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios
+      .get("https://api.npms.io/v2/search?q=react")
+      .then((response) => setData(response.data.total));
+
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
+
   let history = useHistory();
 
   const redirect = () => {

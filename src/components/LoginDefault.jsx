@@ -11,10 +11,8 @@ import TextField from "@mui/material/TextField";
 import { useTheme } from "@emotion/react";
 
 function Register() {
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   //input validation
   const [errors, setErrors] = useState({});
 
@@ -31,10 +29,8 @@ function Register() {
 
     // create account -> post user
     console.log({
-      name: name,
-      lastName: lastname,
-      password: password,
       email: email,
+      password: password,
     });
   };
 
@@ -89,26 +85,14 @@ function Register() {
                 <Grid item sm={12}>
                   <TextField
                     required
-                    id="firstName"
-                    name="firstName"
-                    label="Vorname"
+                    name="email"
+                    label="Email"
+                    type="email"
                     variant="standard"
                     color="secondary"
-                    autoComplete="fname"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                  />
-                </Grid>
-                <Grid item sm={12}>
-                  <TextField
-                    required
-                    name="lastName"
-                    label="Nachname"
-                    variant="standard"
-                    color="secondary"
-                    autoComplete="lname"
-                    value={lastname}
-                    onChange={(event) => setLastname(event.target.value)}
+                    autoComplete="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                   />
                 </Grid>
                 <Grid item sm={12}>
@@ -124,19 +108,6 @@ function Register() {
                     onChange={(event) => setPassword(event.target.value)}
                   />
                 </Grid>
-                <Grid item sm={12}>
-                  <TextField
-                    required
-                    name="email"
-                    label="Email"
-                    type="email"
-                    variant="standard"
-                    color="secondary"
-                    autoComplete="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
-                </Grid>
                 <Button
                   type="submit"
                   size="large"
@@ -149,18 +120,18 @@ function Register() {
                     maxWidth: 500,
                   }}
                 >
-                  Registrieren
+                  Login
                 </Button>
                 <NavLink
-                  to="/login"
+                  to="/register"
                   style={{ marginTop: 7, color: "black", fontWeight: "bold" }}
                 >
-                  Login?
+                  Noch immer kein Konto?
                 </NavLink>
               </Grid>
             </Box>
             <FooterAGB
-              description="Mit deiner Registrierung akzeptierst du
+              description="Mit deiner Anmeldung akzeptierst du
                            unsere "
             />
           </Container>

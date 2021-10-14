@@ -8,10 +8,16 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/Email";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import theme from "../utils/theme";
 
 function Welcome() {
+  // back to login screen?
+  let history = useHistory();
+  const redirect = () => {
+    history.push("/login-default");
+  };
+
   return (
     <div>
       <AppBar
@@ -52,6 +58,7 @@ function Welcome() {
                 variant="contained"
                 sx={{ mt: 10, borderRadius: 7 }}
                 startIcon={<EmailIcon />}
+                onClick={redirect}
               >
                 Weiter mit Email
               </Button>
