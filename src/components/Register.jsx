@@ -1,28 +1,39 @@
 import Typography from "@mui/material/Typography";
+import { useState } from "react";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import FooterAGB from "./FooterAGB";
 import Grid from "@mui/material/Grid";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useTheme } from "@emotion/react";
 
 function Register() {
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
+
   const theme = useTheme();
 
-  const redirect = () => {};
+  // back to login screen?
+  let history = useHistory();
+  const redirect = () => {
+    history.push("/login");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+
+    // create account -> post user
     console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      name: data.get("firstName"),
-      lastName: data.get("lastName"),
+      name: name,
+      lastName: lastname,
+      password: password,
+      email: email,
     });
   };
 
@@ -39,7 +50,7 @@ function Register() {
       </AppBar>
       <main>
         <div>
-          <Container align="center" background="gray" sx={{ mt: 10 }}>
+          <Container align="center" background="gray" sx={{ mt: 5 }}>
             <Typography variant="h4" sx={{ fontWeight: "light" }} gutterBottom>
               Benutzerkonto erstellen
             </Typography>
@@ -55,14 +66,14 @@ function Register() {
             </Button>
             <Typography
               variant="subtitle1"
-              sx={{ fontWeight: "light", mt: 7 }}
+              sx={{ fontWeight: "light", mt: 3 }}
               gutterBottom
             >
               oder
             </Typography>
             <Box
               component="form"
-              sx={{ mt: 5, "& .MuiTextField-root": { m: 1, width: 300 } }}
+              sx={{ mt: 1, "& .MuiTextField-root": { m: 1, width: 300 } }}
               noValidate
               onSubmit={handleSubmit}
               autoComplete="off"
@@ -83,41 +94,46 @@ function Register() {
                     variant="standard"
                     color="secondary"
                     autoComplete="fname"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
                   />
                 </Grid>
                 <Grid item sm={12}>
                   <TextField
                     required
-                    id="lastName"
                     name="lastName"
                     label="Nachname"
                     variant="standard"
                     color="secondary"
                     autoComplete="lname"
+                    value={lastname}
+                    onChange={(event) => setLastname(event.target.value)}
                   />
                 </Grid>
                 <Grid item sm={12}>
                   <TextField
                     required
-                    id="password"
                     label="Passwort"
                     name="password"
                     type="password"
                     variant="standard"
                     color="secondary"
                     autoComplete="new-password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
                   />
                 </Grid>
                 <Grid item sm={12}>
                   <TextField
                     required
-                    id="email"
                     name="email"
                     label="Email"
                     type="email"
                     variant="standard"
                     color="secondary"
                     autoComplete="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                   />
                 </Grid>
                 <Button
@@ -136,7 +152,7 @@ function Register() {
                 </Button>
                 <NavLink
                   to="/login"
-                  style={{ marginTop: 15, color: "black", fontWeight: "bold" }}
+                  style={{ marginTop: 7, color: "black", fontWeight: "bold" }}
                 >
                   Login?
                 </NavLink>
